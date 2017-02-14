@@ -8,3 +8,4 @@ This repo contains various samples for calling and integrating with [nether](htt
 The `LoginFlows` folder contains the following samples
 
 * [ImplicitFlow](LoginFlows/ImplicitFlow/README.md)
+* [FacebookJavaScript](LoginFlows/FacebookJavaScript/README.md)

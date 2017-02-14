@@ -1,0 +1,45 @@
+﻿@using Microsoft.Extensions.Configuration 
+@inject IConfiguration Configuration 
+@{ 
+    var appId = Configuration["FacebookAppId"];
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>LoginFlow/FacebookJavaScript</title>
+</head>
+
+<body>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '@appId',
+                cookie: true,
+                xfbml: true,
+                version: 'v2.8'
+            });
+            FB.AppEvents.logPageView();
+        };
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));
+    </script>
+    <h1>LoginFlow/FacebookJavaScript</h1>
+    <button id="status">Get Status</button>
+    <button id="login">Login</button>
+    <button id="api">Call API</button>
+    <button id="facebookLogout">FB Logout</button>
+    <button id="netherLogout">Nether Logout</button>
+
+    <pre id="results"></pre>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
