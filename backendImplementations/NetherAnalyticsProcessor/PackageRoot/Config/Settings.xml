@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Section Name="EventHubConfig">
+    <Parameter Name="EventHubPath" Value="" />
+    <Parameter Name="ConsumerGroupName" Value="" />
+    <Parameter Name="EventHubConnectionString" Value="" />
+    <Parameter Name="StorageConnectionString" Value="" />
+    <Parameter Name="LeaseContainerName" Value="" />
+  </Section>
+  <Section Name="ServicePrinciple">
+    <Parameter Name="Tenant" Value=""/>
+    <Parameter Name="ObjectId" Value=""/>
+    <Parameter Name ="Secret" Value=""/>
+  </Section>
+  <Section Name="DataLake">
+    <Parameter Name="SubscriptionId" Value=""/>
+    <Parameter Name="DataLakeStoreName" Value=""/>
+  </Section>
+</Settings>
