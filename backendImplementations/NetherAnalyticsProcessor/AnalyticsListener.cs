@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (c) Microsoft. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Rest;
@@ -12,24 +15,24 @@ namespace NetherAnalyticsProcessor
 {
     public class AnalyticsListener : ICommunicationListener
     {
-        private readonly EventHubsListenerConfiguration configuration;
-        private readonly string dataLakeName;
-        private MessageProcessor<EventHubListenerMessage> messageProcessor;
-        private readonly ServiceClientCredentials serviceClientCredentials;
-        private readonly string subscription;
+        private readonly EventHubsListenerConfiguration _configuration;
+        private readonly string _dataLakeName;
+        private MessageProcessor<EventHubListenerMessage> _messageProcessor;
+        private readonly ServiceClientCredentials _serviceClientCredentials;
+        private readonly string _subscription;
 
         public AnalyticsListener(EventHubsListenerConfiguration configuration,
             ServiceClientCredentials servicePrinciple, string subscription, string dataLakeName)
         {
-            this.configuration = configuration;
-            this.serviceClientCredentials = servicePrinciple;
-            this.dataLakeName = dataLakeName;
-            this.subscription = subscription;
+            _configuration = configuration;
+            _serviceClientCredentials = servicePrinciple;
+            _dataLakeName = dataLakeName;
+            _subscription = subscription;
         }
 
         public async Task<string> OpenAsync(CancellationToken cancellationToken)
         {
-            var listener = new EventHubsListener(this.configuration);
+            var listener = new EventHubsListener(_configuration);
 
             var parser = new EventHubListenerMessageJsonParser();
 
@@ -42,9 +45,9 @@ namespace NetherAnalyticsProcessor
             var clusteringDlsOutputManager = new DataLakeStoreOutputManager(
                 clusteringSerializer,
                 new PipelineDateFilePathAlgorithm(newFileOption: NewFileNameOptions.Every5Minutes),
-                this.serviceClientCredentials,
-                this.subscription,
-                this.dataLakeName);
+                _serviceClientCredentials,
+                _subscription,
+                _dataLakeName);
 
             var clusteringConsoleOutputManager = new ConsoleOutputManager(clusteringSerializer);
 
@@ -59,12 +62,12 @@ namespace NetherAnalyticsProcessor
             var router = builder.Build();
 
             // Attach the differeing parts of the message processor together
-            this.messageProcessor = new MessageProcessor<EventHubListenerMessage>(listener, parser, router);
+            _messageProcessor = new MessageProcessor<EventHubListenerMessage>(listener, parser, router);
 
             // The following method will never exit
             //await messageProcessor.ProcessAndBlockAsync();
 
-            return this.configuration.EventHubPath;
+            return _configuration.EventHubPath;
         }
 
         public Task CloseAsync(CancellationToken cancellationToken)
@@ -96,7 +99,7 @@ namespace NetherAnalyticsProcessor
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            await this.messageProcessor.ProcessAndBlockAsync(cancellationToken);
+            await _messageProcessor.ProcessAndBlockAsync(cancellationToken);
         }
     }
 }

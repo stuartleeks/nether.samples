@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (c) Microsoft. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+using System;
 using System.Collections.Generic;
 using System.Fabric;
 using System.Threading;
@@ -130,11 +133,11 @@ namespace NetherAnalyticsProcessor
             var codePackageActivationContext = this.Context.CodePackageActivationContext;
             var config = codePackageActivationContext.GetConfigurationPackageObject("Config");
 
-            this._listener = new AnalyticsListener(this.getEventHubsListenerConfiguration(config),
+            _listener = new AnalyticsListener(this.getEventHubsListenerConfiguration(config),
                 this.getServiceClientCredentials(config).Result, this.getSubscriptionId(config),
                 this.getDataLakeName(config));
 
-            return this._listener;
+            return _listener;
         }
 
         /// <summary>
@@ -155,7 +158,7 @@ namespace NetherAnalyticsProcessor
         /// <param name="cancellationToken">Canceled when Service Fabric needs to shut down this service instance.</param>
         protected override async Task RunAsync(CancellationToken cancellationToken)
         {
-            await this._listener.StartAsync(cancellationToken);
+            await _listener.StartAsync(cancellationToken);
         }
     }
 }
