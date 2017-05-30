@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "NetherFabric", "NetherFabric\NetherFabric.sfproj", "{B12B5DB9-F9B6-4962-B110-0A1B0DA75104}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetherAnalyticsProcessor", "NetherAnalyticsProcessor\NetherAnalyticsProcessor.csproj", "{D97937C3-BAB5-40C7-A51B-E06EA4CEB89A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B12B5DB9-F9B6-4962-B110-0A1B0DA75104}.Debug|x64.ActiveCfg = Debug|x64
+		{B12B5DB9-F9B6-4962-B110-0A1B0DA75104}.Debug|x64.Build.0 = Debug|x64
+		{B12B5DB9-F9B6-4962-B110-0A1B0DA75104}.Debug|x64.Deploy.0 = Debug|x64
+		{B12B5DB9-F9B6-4962-B110-0A1B0DA75104}.Release|x64.ActiveCfg = Release|x64
+		{B12B5DB9-F9B6-4962-B110-0A1B0DA75104}.Release|x64.Build.0 = Release|x64
+		{B12B5DB9-F9B6-4962-B110-0A1B0DA75104}.Release|x64.Deploy.0 = Release|x64
+		{D97937C3-BAB5-40C7-A51B-E06EA4CEB89A}.Debug|x64.ActiveCfg = Debug|x64
+		{D97937C3-BAB5-40C7-A51B-E06EA4CEB89A}.Debug|x64.Build.0 = Debug|x64
+		{D97937C3-BAB5-40C7-A51B-E06EA4CEB89A}.Release|x64.ActiveCfg = Release|x64
+		{D97937C3-BAB5-40C7-A51B-E06EA4CEB89A}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
