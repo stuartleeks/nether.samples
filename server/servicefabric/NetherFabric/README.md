@@ -1,6 +1,6 @@
 # Nether.Fabric
 
-Nether Fabric is a sample implementation of Nehter in Service Fabric. In this case, the Nether Analytics pipeline was implemented as a Stateless Service.
+Nether Fabric is a sample implementation of Nether in Service Fabric. In this case, the Nether Analytics pipeline was implemented as a Stateless Service.
 
 Using Nether in Service Fabric is straight forward. You just need to reference the Nether Nuget Packages in your Service that should use Nether functionality.
 
@@ -8,7 +8,7 @@ Because Nether compiles against .NET core 1.1 and .NET Framework 4.6 you need to
 
 ## Nether.Analytics
 
-The analytics part of Nether is different from the other modules because the data ingress happens through an Event Hub not an REST API. The Service was implemented in a way that you could spawn as many processors as needed to process the incoming data in parallel. 
+The analytics part of Nether is different from the other modules because the data ingress happens through an Event Hub not an REST API. The Service was implemented in a way that you could spawn as many processors as needed to process the incoming data in parallel.
 
 Blob storage is used for Service synchronization, the reason for that is that this is the standard behavior of Nether.
 

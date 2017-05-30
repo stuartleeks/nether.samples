@@ -1,5 +1,5 @@
-# nether.samples
+# Nether Samples
 
-## Service Fabric Integration
+## [NetherFabric](server/servicefabric/NetherFabric)
 
-Here you can find a sample implemntation of the Nether analytics Pipline into Service Fabric
+Nether Fabric is a sample implementation of Nether in Service Fabric. In this case, the Nether Analytics pipeline was implemented as a Stateless Service.
