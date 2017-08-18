@@ -49,24 +49,61 @@ function translateFacebookToken(fbAccessToken) {
 }
 
 
-function api() {
+function echoClaims() {
     var url = "http://localhost:5000/api/identity-test";
 
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url);
     xhr.onload = function () {
         var responseContent = null;
-        if (xhr.status == 200) {
+        if (xhr.status === 200) {
             responseContent = JSON.parse(xhr.responseText)
         }
-        log(xhr.status, responseContent);
+        log("echo claims", xhr.status, responseContent);
     }
     xhr.setRequestHeader("Authorization", "Bearer " + _netherToken);
     xhr.send();
 }
 
-function facebookLogout(){
-    FB.logout(function(response){
+function checkGamertag() {
+    var url = "http://localhost:5000/api/player";
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.onload = function () {
+        var responseContent = null;
+        if (xhr.status === 200) {
+            responseContent = JSON.parse(xhr.responseText)
+        }
+        log("get player", xhr.status, responseContent);
+        if (xhr.status === 404) {
+            // player doesn't exist, i.e. no checkGamertag
+            var gamertag = prompt("Enter your gamertag");
+            if (gamertag !== null && gamertag !== "") {
+                setGamertag(gamertag);
+            }
+        }
+    }
+    xhr.setRequestHeader("Authorization", "Bearer " + _netherToken);
+    xhr.send();
+}
+
+function setGamertag(gamertag) {
+    var url = "http://localhost:5000/api/player";
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("PUT", url);
+    xhr.onload = function () {
+        var responseContent = null;
+        log("set gamertag", xhr.status);
+    }
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Authorization", "Bearer " + _netherToken);
+    xhr.send(JSON.stringify({gamertag : gamertag}));
+}
+
+function facebookLogout() {
+    FB.logout(function (response) {
         log(response);
     });
 }
@@ -90,7 +127,8 @@ function facebookLogout(){
 
 document.getElementById("status").addEventListener("click", getStatus, false);
 document.getElementById("login").addEventListener("click", login, false);
-document.getElementById("api").addEventListener("click", api, false);
+document.getElementById("echoClaims").addEventListener("click", echoClaims, false);
+document.getElementById("checkGamertag").addEventListener("click", checkGamertag, false);
 document.getElementById("facebookLogout").addEventListener("click", facebookLogout, false);
 // document.getElementById("netherLogout").addEventListener("click", netherLogout, false);
 
