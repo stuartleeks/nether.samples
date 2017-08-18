@@ -1,0 +1,157 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #333333;
+    color: white;
+}
+a{
+    color: white;
+}
+a:visited{
+   color: lightgrey; 
+}
+
+@keyframes pulseAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@keyframes pulseAnimationFast {
+  0%   { opacity:1; }
+  25%  { opacity:0.9 }
+  50%  { opacity:0.25; }
+  75%  { opacity:0.9 }
+  100% { opacity:1; }
+}
+
+.animate-pulse {
+    opacity:1;  
+    animation: pulseAnimation 1.5s infinite;
+}
+.animate-pulse-fast {
+    opacity:1;  
+    animation: pulseAnimationFast 0.5s infinite;
+}
+
+.container {
+    min-height: 400px;
+    padding-bottom: 20px;
+}
+
+#loading{
+    font-size: 50px;
+    display:none;
+}
+#loading.active{
+    display: block;
+}
+
+#play{
+    display: none;
+}
+#play.active{
+    display: block;
+}
+#cards
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.card{
+    border-radius: 10px;
+    border: 4px solid #0079d6;
+    display: inline-block;
+    padding: 2px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-color: white;
+}
+#play-message{
+    font-size: 20px;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+#play-higher, #play-lower, #leaderboard-play-again, #set-gamertag-button{
+    background: #333333; 
+    display:inline-block;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    border-radius: 15px;
+    border: 3px solid white;
+    box-shadow: 0px;
+    margin: 5px;
+    padding: 10px 20px;
+}
+#play-higher:hover, #play-lower:hover, #leaderboard-play-again:hover, #set-gamertag-button:hover{
+    background: #666666; 
+}
+#play-higher.disabled, #play-lower.disabled, #leaderboard-play-again.disabled{
+    background: #333333; 
+    color: grey;
+    border-color: grey;    
+}
+
+#set-gamertag{
+    display: none;
+}
+#set-gamertag.active{
+    display: block;
+}
+#new-gamertag{
+    font-size: larger;
+    width: 200px;
+}
+
+#leaderboard{
+    display:none;
+}
+#leaderboard.active{
+    display: block;
+}
+
+#leaderboard-scores{
+    margin: 10px 0px 10px 0px;
+    font-weight: bold;
+    font-size: larger;
+}
+#leaderboard-scores .score-row{
+    min-height: 1.5em;
+}
+#leaderboard-scores .score-row.current-player{
+    min-height: 1.5em;
+}
+
+#leaderboard-scores .rank{
+    width: 40px;
+    padding-left:10px;
+    display:inline-block;
+}
+#leaderboard-scores .score-row.current-player .rank{
+    background-color: #0079d6;
+}
+#leaderboard-scores .gamertag{
+    width: 200px;
+    display:inline-block;
+}
+#leaderboard-scores .score-row.current-player .gamertag{
+    background-color: #0079d6;
+}
+#leaderboard-scores .score{
+    width: 50px;
+    display:inline-block;
+}
+#leaderboard-scores .score-row.current-player .score{
+    background-color: #0079d6;
+}
+@media only screen and (max-width: 500px) {
+    .container {
+        min-height:200px;
+    }
+    .card {
+      height: 150px;
+
+    }
+    .card img {
+      height:150px
+    }
+}

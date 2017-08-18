@@ -1,0 +1,107 @@
+@page
+@{
+    var netherRootUrl = Environment.GetEnvironmentVariable("HIGHLOW_NETHER_ROOT_URL") ?? "http://localhost:5000";
+    var clientId = Environment.GetEnvironmentVariable("HIGHLOW_CLIENT_ID") ?? "devclient";
+    var clientSecret = Environment.GetEnvironmentVariable("HIGHLOW_CLIENT_SECRET") ?? "devsecret";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Higher or Lower</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="nether.js"></script>
+</head>
+
+<body data-nether-root-url="@netherRootUrl" data-client-id="@clientId" data-client-secret="@clientSecret" >
+    <h1>Higher or Lower</h1>
+    <h2>A sample browser game for <a href="https://github.com/MicrosoftDX/nether">nether</a> </h2>
+
+    <div class="container">
+        <div id="loading" class="animate-pulse active">Loading...</div>
+        <div id="set-gamertag">
+            <h2>Choose a gamertag:</h2>
+            <input type="text" id="new-gamertag" placeholder="type gamertag..." autofocus>
+            <button id="set-gamertag-button">go</button>
+            <div id="set-gamertag-message"></div>
+        </div>
+        <div id="play">
+            <div>Player: <span id="gamertag">gamertag goes here</span></div>
+            <div id="cards"></div>
+            <div>
+                <div id="play-message"></div>
+                <div>
+                    <button id="play-higher">Higher</button><button id="play-lower">Lower</button>
+                </div>
+            </div>
+        </div>
+        <div id="leaderboard">
+            <div id="leaderboard-message1"></div>
+            <div id="leaderboard-message2"></div>
+            <div id="leaderboard-scores"></div>
+            <button id="leaderboard-play-again">Play again</button>
+        </div>
+    </div>
+
+    <div>Card images from <a href="https://github.com/bradygaster/AzureCards">AzureCards</a> courtesy of <a href="https://twitter.com/bradygaster">Brady Gaster</a>        </div>
+    <script src="higher-or-lower.js"></script>
+    <div style="display: none">
+        <img src="img/ace_of_clubs.png" />
+        <img src="img/ace_of_diamonds.png" />
+        <img src="img/ace_of_hearts.png" />
+        <img src="img/ace_of_spades.png" />
+        <img src="img/eight_of_clubs.png" />
+        <img src="img/eight_of_diamonds.png" />
+        <img src="img/eight_of_hearts.png" />
+        <img src="img/eight_of_spades.png" />
+        <img src="img/five_of_clubs.png" />
+        <img src="img/five_of_diamonds.png" />
+        <img src="img/five_of_hearts.png" />
+        <img src="img/five_of_spades.png" />
+        <img src="img/four_of_clubs.png" />
+        <img src="img/four_of_diamonds.png" />
+        <img src="img/four_of_hearts.png" />
+        <img src="img/four_of_spades.png" />
+        <img src="img/jack_of_clubs.png" />
+        <img src="img/jack_of_diamonds.png" />
+        <img src="img/jack_of_hearts.png" />
+        <img src="img/jack_of_spades.png" />
+        <img src="img/king_of_clubs.png" />
+        <img src="img/king_of_diamonds.png" />
+        <img src="img/king_of_hearts.png" />
+        <img src="img/king_of_spades.png" />
+        <img src="img/nine_of_clubs.png" />
+        <img src="img/nine_of_diamonds.png" />
+        <img src="img/nine_of_hearts.png" />
+        <img src="img/nine_of_spades.png" />
+        <img src="img/queen_of_clubs.png" />
+        <img src="img/queen_of_diamonds.png" />
+        <img src="img/queen_of_hearts.png" />
+        <img src="img/queen_of_spades.png" />
+        <img src="img/seven_of_clubs.png" />
+        <img src="img/seven_of_diamonds.png" />
+        <img src="img/seven_of_hearts.png" />
+        <img src="img/seven_of_spades.png" />
+        <img src="img/six_of_clubs.png" />
+        <img src="img/six_of_diamonds.png" />
+        <img src="img/six_of_hearts.png" />
+        <img src="img/six_of_spades.png" />
+        <img src="img/ten_of_clubs.png" />
+        <img src="img/ten_of_diamonds.png" />
+        <img src="img/ten_of_hearts.png" />
+        <img src="img/ten_of_spades.png" />
+        <img src="img/three_of_clubs.png" />
+        <img src="img/three_of_diamonds.png" />
+        <img src="img/three_of_hearts.png" />
+        <img src="img/three_of_spades.png" />
+        <img src="img/two_of_clubs.png" />
+        <img src="img/two_of_diamonds.png" />
+        <img src="img/two_of_hearts.png" />
+        <img src="img/two_of_spades.png" />
+    </div>
+</body>
+
+</html>
