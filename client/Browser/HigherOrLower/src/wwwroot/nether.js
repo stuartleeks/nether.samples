@@ -651,8 +651,6 @@ nether.player.identity = (function () {
                 }
             }
         });
-
-
     };
 
     // nether login
